@@ -1,0 +1,189 @@
+/*
+ * Swagger Copy Full Details Extension — styles.css
+ *
+ * Covers:
+ *  .scfd-copy-btn     — per-endpoint copy button
+ *  .scfd-tag-copy-btn — per-tag "Copy All" button
+ */
+
+/* ══════════════════════════════════════════════════════════════════
+   SHARED BASE — both button types share these rules
+   ══════════════════════════════════════════════════════════════════ */
+
+.swagger-ui .scfd-copy-btn,
+.swagger-ui .scfd-tag-copy-btn {
+  display:          inline-flex;
+  align-items:      center;
+  justify-content:  center;
+  gap:              5px;
+  flex-shrink:      0;
+
+  font-family:      "Titillium Web", "Open Sans", sans-serif;
+  font-weight:      700;
+  letter-spacing:   0.03em;
+  line-height:      1;
+  white-space:      nowrap;
+
+  color:            #ffffff;
+  border-radius:    4px;
+  cursor:           pointer;
+  transition:       all 0.15s ease;
+  user-select:      none;
+  -webkit-user-select: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ENDPOINT COPY BUTTON (.scfd-copy-btn)
+   — sits inside .opblock-summary, after the method badge
+   ══════════════════════════════════════════════════════════════════ */
+
+.swagger-ui .scfd-copy-btn {
+  padding:          6px 12px;
+  font-size:        12px;
+  background:       #4a7ba7;
+  border:           1px solid #2c5aa0;
+  margin-left:      6px;
+  margin-right:     4px;
+}
+
+.swagger-ui .scfd-copy-btn:hover {
+  background:       #2c5aa0;
+  border-color:     #1a3a6f;
+  box-shadow:       0 3px 8px rgba(44, 90, 160, 0.35);
+  transform:        translateY(-2px);
+}
+
+.swagger-ui .scfd-copy-btn:active {
+  transform:        translateY(0);
+  box-shadow:       0 1px 3px rgba(44, 90, 160, 0.2);
+  background:       #1a3a6f;
+}
+
+.swagger-ui .scfd-copy-btn.scfd-copied {
+  background:       #2d8659;
+  border-color:     #1e5a3f;
+  box-shadow:       0 0 0 2px rgba(45, 134, 89, 0.3);
+  animation:        scfd-pop 0.3s ease;
+}
+
+.swagger-ui .scfd-copy-btn.scfd-loading {
+  background:       #7a9bbf;
+  border-color:     #5580a0;
+  cursor:           wait;
+  opacity:          0.85;
+}
+
+/* ── Method-specific overrides (keep button legible on coloured rows) */
+.swagger-ui .opblock-delete   .scfd-copy-btn,
+.swagger-ui .opblock-post     .scfd-copy-btn,
+.swagger-ui .opblock-put      .scfd-copy-btn,
+.swagger-ui .opblock-patch    .scfd-copy-btn {
+  background:       #4a7ba7;
+  border-color:     #2c5aa0;
+}
+
+.swagger-ui .opblock-delete   .scfd-copy-btn:hover,
+.swagger-ui .opblock-post     .scfd-copy-btn:hover,
+.swagger-ui .opblock-put      .scfd-copy-btn:hover,
+.swagger-ui .opblock-patch    .scfd-copy-btn:hover {
+  background:       #2c5aa0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   TAG-LEVEL "COPY ALL" BUTTON (.scfd-tag-copy-btn)
+   — sits inside h4.opblock-tag, before the expand arrow
+   ══════════════════════════════════════════════════════════════════ */
+
+.swagger-ui .scfd-tag-copy-btn {
+  padding:          5px 14px;
+  font-size:        12px;
+
+  /* Distinct amber/teal color to differentiate from per-endpoint buttons */
+  background:       #2a7d6e;
+  border:           1px solid #1d5c52;
+
+  /* Position inside the tag header row */
+  margin-left:      auto;   /* push toward the right */
+  margin-right:     10px;
+
+  /* Slightly rounded to match Swagger UI style */
+  border-radius:    4px;
+}
+
+.swagger-ui .scfd-tag-copy-btn:hover {
+  background:       #1d5c52;
+  border-color:     #134039;
+  box-shadow:       0 3px 8px rgba(29, 92, 82, 0.35);
+  transform:        translateY(-2px);
+}
+
+.swagger-ui .scfd-tag-copy-btn:active {
+  transform:        translateY(0);
+  box-shadow:       0 1px 3px rgba(29, 92, 82, 0.2);
+  background:       #134039;
+}
+
+.swagger-ui .scfd-tag-copy-btn.scfd-copied {
+  background:       #2d8659;
+  border-color:     #1e5a3f;
+  box-shadow:       0 0 0 2px rgba(45, 134, 89, 0.3);
+  animation:        scfd-pop 0.3s ease;
+}
+
+.swagger-ui .scfd-tag-copy-btn.scfd-loading {
+  background:       #5aab9d;
+  border-color:     #3d8077;
+  cursor:           wait;
+  opacity:          0.85;
+}
+
+/* ── Make the tag header a flex row so our button aligns nicely */
+.swagger-ui h4.opblock-tag {
+  display:        flex !important;
+  align-items:    center !important;
+  flex-wrap:      nowrap;
+}
+
+/* ── Tag anchor (name text) takes up available space */
+.swagger-ui h4.opblock-tag > a {
+  flex:           1 1 auto;
+  min-width:      0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SHARED ANIMATION
+   ══════════════════════════════════════════════════════════════════ */
+
+@keyframes scfd-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ACCESSIBILITY
+   ══════════════════════════════════════════════════════════════════ */
+
+.swagger-ui .scfd-copy-btn:focus-visible,
+.swagger-ui .scfd-tag-copy-btn:focus-visible {
+  outline:        2px solid #4a7ba7;
+  outline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+  .swagger-ui .scfd-copy-btn {
+    font-size:   11px;
+    padding:     5px 10px;
+    gap:         3px;
+  }
+
+  .swagger-ui .scfd-tag-copy-btn {
+    font-size:   11px;
+    padding:     4px 10px;
+    margin-right: 6px;
+  }
+}

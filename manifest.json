@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Swagger Copy Full Details",
+  "version": "1.0.0",
+  "description": "Adds a 'Copy Full Details' button to every endpoint in Swagger UI for quick Markdown export.",
+  "permissions": ["clipboardWrite", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Swagger Copy Full Details"
+  }
+}
