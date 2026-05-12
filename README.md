@@ -1,13 +1,13 @@
-# Swagger UI — Copy Full Endpoints Details Extension
+# Swagger UI — Copy Full Details Extension
 
 A Chrome extension that adds **Copy** buttons to every endpoint and tag section in Swagger UI, letting you grab full API details as clean Markdown in one click — no manual expanding required.
 
 ![Chrome](https://img.shields.io/badge/Chrome-Manifest_V3-4285F4?logo=googlechrome&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
 ## Features
+![Preview](https://i.imgur.com/azC84fM.png)
 
 - **📋 Copy** button on every endpoint row — copies method, path, description, parameters, request body, response codes, and JSON examples
 - **📋 Copy All** button on every tag/section header — copies every endpoint under that section as one combined Markdown document
@@ -19,7 +19,7 @@ A Chrome extension that adds **Copy** buttons to every endpoint and tag section 
 
 ## Preview
 
-```
+~~~markdown
 # `POST` /api/v2/auth/register
 
 ## Description
@@ -27,10 +27,10 @@ Register User V2
 
 ## Parameters
 
-| Name     | In   | Type   | Required | Description       |
-|----------|------|--------|----------|-------------------|
-| username | body | string | Yes      | Unique username   |
-| password | body | string | Yes      | Min 8 characters  |
+| Name     | In   | Type   | Required | Description      |
+|----------|------|--------|----------|------------------|
+| username | body | string | Yes      | Unique username  |
+| password | body | string | Yes      | Min 8 characters |
 
 ## Response Codes
 
@@ -40,10 +40,11 @@ Register User V2
 ## Request/Response Examples
 
 ### Example Response (200)
+
 ```json
 { "access_token": "...", "token_type": "bearer" }
 ```
-```
+~~~
 
 ---
 
@@ -61,19 +62,13 @@ Register User V2
 
    Or click **Code → Download ZIP** and extract it.
 
-2. **Open Chrome Extensions page**
+2. **Open Chrome Extensions page** — go to `chrome://extensions` in your browser.
 
-   Go to `chrome://extensions` in your browser.
+3. **Enable Developer Mode** — toggle **Developer mode** on (top-right corner).
 
-3. **Enable Developer Mode**
+4. **Load the extension** — click **Load unpacked** → select the folder you cloned/extracted.
 
-   Toggle **Developer mode** on (top-right corner).
-
-4. **Load the extension**
-
-   Click **Load unpacked** → select the folder you cloned/extracted.
-
-5. **Done.** Open any Swagger UI page and the Copy buttons will appear automatically.
+5. **Done** — open any Swagger UI page and the Copy buttons will appear automatically.
 
 ---
 
