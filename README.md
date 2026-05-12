@@ -57,7 +57,7 @@ Register User V2
 1. **Download or clone this repo**
 
    ```bash
-   git clone https://github.com/your-username/swagger-copy-extension.git
+   git clone https://github.com/AsiF-Py/Swagger-UI-Copy-Full-Details-Endpoint-Extension.git
    ```
 
    Or click **Code → Download ZIP** and extract it.
